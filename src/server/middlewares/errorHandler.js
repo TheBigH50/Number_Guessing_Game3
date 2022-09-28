@@ -5,3 +5,4 @@ export const errorHandler = (err, req, res, next) => {
       msg: err.message || "An error occurred on the server.",
     });
   }
+  
