@@ -1,5 +1,7 @@
 import query from "../db/utils";
 
+// Get Query's
+
 export const easyLeader = async () => {
   return await query(
     "SELECT UserName, EasyScore, EasyCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT EasyScore= 0 ORDER BY EasyScore, EasyCompletionTime ASC LIMIT 10"
@@ -19,36 +21,55 @@ export const overkillLeader = async () => {
 };
 
 export const findUserID = async (UserName) => {
+  return await query("SELECT UserID FROM users WHERE Username= ?", [UserName]);
+};
+
+export const currentUserScores = async (UserID) => {
   return await query(
-    "SELECT UserID FROM users WHERE Username= ?", [UserName]
+    "SELECT UserName, EasyScore, EasyCompletionTime, HardScore, HardCompletionTime, OverkillScore, OverkillCompletionTime From scores INNER JOIN users ON users.UserID = scores.UserID WHERE UserID= ?",
+    [UserID]
   );
 };
+
+// Post Query
 
 const newUser = async (UserName) => {
-  return await query(
-    "INSERT INTO users SET ?", [UserName]
-  );
+  return await query("INSERT INTO users SET ?", [UserName]);
 };
 
+// Put Query's
+
 const updateEasyScore = async (updatedEasyScore, UserID) => {
-  return await query(
-    "UPDATE scores SET ? WHERE UserID= ?", [updatedEasyScore, UserID]
-  );
+  return await query("UPDATE scores SET ? WHERE UserID= ?", [
+    updatedEasyScore,
+    UserID,
+  ]);
 };
 
 const updateHardScore = async (updatedHardScore, UserID) => {
-  return await query(
-    "UPDATE scores SET ? WHERE UserID= ?", [updatedHardScore, UserID]
-  );
+  return await query("UPDATE scores SET ? WHERE UserID= ?", [
+    updatedHardScore,
+    UserID,
+  ]);
 };
 
 const updateOverkillScore = async (updatedOverkillScore, UserID) => {
-  return await query(
-    "UPDATE scores SET ? WHERE UserID= ?", [updatedOverkillScore, UserID]
-  );
+  return await query("UPDATE scores SET ? WHERE UserID= ?", [
+    updatedOverkillScore,
+    UserID,
+  ]);
 };
 
-export default { easyLeader, hardLeader, overkillLeader, newUser, findUserID, updateEasyScore, updateHardScore, updateOverkillScore };
+export default {
+  easyLeader,
+  hardLeader,
+  overkillLeader,
+  newUser,
+  findUserID,
+  updateEasyScore,
+  updateHardScore,
+  updateOverkillScore,
+};
 
 /*
 export const leadAll = async () => {
@@ -57,4 +78,3 @@ export const leadAll = async () => {
   );
 };
 */
-
