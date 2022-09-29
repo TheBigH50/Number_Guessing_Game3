@@ -3,7 +3,7 @@ import leaderboard from "../controllers/leaderboard.controller";
 
 const router = express.Router();
 
-// 09-29-2022 come back later and reduce number of get routers
+// 09-29-2022 come back later and reduce number of routers
 router.get("/", async (req, res, next) => {
   try {
     let data = await leaderboard.easyLeader();
@@ -56,6 +56,50 @@ router.get("/", async (req, res, next) => {
       let { UserID } = req.params;
       let updatedEasyScore = req.body;
       let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.put("/:UserID", async (req, res, next) => {
+    try {
+      let { UserID } = req.params;
+      let updatedEasyScore = req.body;
+      let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.put("/:UserID", async (req, res, next) => {
+    try {
+      let { UserID } = req.params;
+      let updatedEasyScore = req.body;
+      let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.put("/:UserID", async (req, res, next) => {
+    try {
+      let { UserID } = req.params;
+      let updatedHardScore = req.body;
+      let data = await employees.updateHardScore(updatedHardScore, UserID);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.put("/:UserID", async (req, res, next) => {
+    try {
+      let { UserID } = req.params;
+      let updatedOverkillScore = req.body;
+      let data = await employees.updateOverkillScore(updatedOverkillScore, UserID);
       res.json(data);
     } catch (error) {
       next(error);
