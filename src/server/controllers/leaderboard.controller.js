@@ -2,21 +2,41 @@ import query from "../db/utils";
 
 export const easyLeader = async () => {
   return await query(
-    "SELECT UserName, EasyScore, EasyCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT EasyScore= 0 ORDER BY EasyScore, EasyCompletionTime ASC LIMIT 10;"
+    "SELECT UserName, EasyScore, EasyCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT EasyScore= 0 ORDER BY EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
 
 export const hardLeader = async () => {
   return await query(
-    "SELECT UserName, HardScore, HardCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT HardScore= 0 ORDER BY HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10;"
+    "SELECT UserName, HardScore, HardCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT HardScore= 0 ORDER BY HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
 
 export const overkillLeader = async () => {
   return await query(
-    "SELECT UserName, OverkillScore, OverkillCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT OverkillScore= 0 ORDER BY OverkillScore, OverkillCompletionTime, HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10;"
+    "SELECT UserName, OverkillScore, OverkillCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT OverkillScore= 0 ORDER BY OverkillScore, OverkillCompletionTime, HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
+
+export const findUserID = async (UserName) => {
+  return await query(
+    "SELECT UserID FROM users WHERE Username= ?", [UserName]
+  );
+};
+
+const newUser = async (UserName) => {
+  return await query(
+    "INSERT INTO users SET ?", [UserName]
+  );
+};
+
+const updateEasyScore = async (updatedEasyScore, UserID) => {
+  return await query(
+    "UPDATE scores SET ? WHERE UserID= ?", [updatedEasyScore, UserID]
+  );
+};
+
+export default { easyLeader, hardLeader, overkillLeader, newUser, findUserID, updateEasyScore };
 
 /*
 export const leadAll = async () => {
@@ -26,10 +46,3 @@ export const leadAll = async () => {
 };
 */
 
-const newUser = async (user) => {
-  return await query(
-    "INSERT INTO users SET ?", [user]
-  );
-};
-
-export default { easyLeader, hardLeader, overkillLeader, newUser };

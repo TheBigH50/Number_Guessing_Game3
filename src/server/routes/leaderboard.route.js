@@ -31,6 +31,16 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+  router.get("/:UserName", async (req, res, next) => {
+    try {
+      let { UserName } = req.params;
+      let data = await leaderboard.findUserID(UserName);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
   router.post("/", async (req, res, next) => {
     try {
       let newUser = req.body;
@@ -41,3 +51,13 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+  router.put("/:UserID", async (req, res, next) => {
+    try {
+      let { UserID } = req.params;
+      let updatedEasyScore = req.body;
+      let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
