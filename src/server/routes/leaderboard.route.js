@@ -30,3 +30,14 @@ router.get("/", async (req, res, next) => {
       next(error);
     }
   });
+
+  router.post("/", async (req, res, next) => {
+    try {
+      let newUser = req.body;
+      let data = await employees.newUser(newUser);
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
