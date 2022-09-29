@@ -69,6 +69,7 @@ export default {
   updateEasyScore,
   updateHardScore,
   updateOverkillScore,
+  currentUserScores
 };
 
 /*
