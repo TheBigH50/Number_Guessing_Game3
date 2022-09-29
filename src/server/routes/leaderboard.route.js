@@ -1,17 +1,30 @@
 import express from "express";
-import leaderboard from "../controllers/leaderboard.controller"
+import leaderboard from "../controllers/leaderboard.controller";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/:id?", async (req, res, next) => {
+// 09-29-2022 come back later and reduce number of get routers
+router.get("/", async (req, res, next) => {
+  try {
+    let data = await leaderboard.easyLeader();
+    res.json(data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/", async (req, res, next) => {
     try {
-      let { id } = req.params;
-      let data;
-      if (id) {
-        [data] = await leaderboard.easyLeader(parseInt(id));
-      } else {
-        data = await .findAll();
-      }
+      let data = await leaderboard.hardLeader();
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  router.get("/", async (req, res, next) => {
+    try {
+      let data = await leaderboard.overkillLeader();
       res.json(data);
     } catch (error) {
       next(error);

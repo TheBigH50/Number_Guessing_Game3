@@ -21,7 +21,7 @@ export const overkillLeader = async () => {
 export const leadAll = async () => {
   return await query(
     "SELECT UserID, EasyScore, HardScore, OverkillScore FROM scores ORDER BY EasyScore ASC;"
-  )
-}
+  );
+};
 
-export default { easyLeader, hardLeader, overkillLeader };
+export default { easyLeader, hardLeader, overkillLeader, leadAll };
