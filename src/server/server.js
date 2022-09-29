@@ -36,6 +36,8 @@ app.use("/api", apiRouter);
  * Sends the react app index.html for page requests
  * Only needed in production when you are not using the react dev server
  */
+
+/*
 app.use((req, res, next) => {
   try {
     res.sendFile(join(__dirname, "../../public/index.html"));
@@ -43,6 +45,8 @@ app.use((req, res, next) => {
     next(error);
   }
 });
+
+*/
 
 /**
  * Error handler middleware

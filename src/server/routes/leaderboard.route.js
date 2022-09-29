@@ -125,3 +125,5 @@ router.put("/:UserID", async (req, res, next) => {
     next(error);
   }
 });
+
+export default router;
