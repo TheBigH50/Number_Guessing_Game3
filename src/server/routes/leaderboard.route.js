@@ -37,6 +37,7 @@ router.get("/overkill", async (req, res, next) => {
 router.get("/:UserName", async (req, res, next) => {
   try {
     let { UserName } = req.params;
+    console.log(UserName);
     let data = await leaderboard.findUserID(UserName);
     res.json(data);
   } catch (error) {
@@ -44,10 +45,13 @@ router.get("/:UserName", async (req, res, next) => {
   }
 });
 
-router.get("/:UserID", async (req, res, next) => {
+
+
+router.get("/users/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
-    let data = await leaderboard.currentUserScores(UserID);
+    
+    let data = await leaderboard.currentUserScores(parseInt(UserID));
     res.json(data);
   } catch (error) {
     next(error);
