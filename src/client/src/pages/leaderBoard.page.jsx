@@ -2,6 +2,43 @@ import { useState, useEffect } from "react";
 
 function LeaderBoard(props) {
 let [isLoading, setIsLoading] = useState(true);
+let [easyList, setEasyList] = useState({});
+let [hardList, setHardList] = useState({});
+let [overkillList, setOverkillList] = useState({});
+
+function getEasy() {
+  fetch("http://localhost:5000/api/leaderboard/easy")
+    .then((res) => res.json())
+    .then((easy) => {
+      setEasyList(easy);      
+    })
+    .catch((error) => console.error(error));
+}
+
+function getHard() {
+  fetch("http://localhost:5000/api/leaderboard/hard")
+    .then((res) => res.json())
+    .then((hard) => {
+      setHardList(hard);      
+    })
+    .catch((error) => console.error(error));
+}
+
+function getOverkill() {
+  fetch("http://localhost:5000/api/leaderboard/overkill")
+    .then((res) => res.json())
+    .then((overkill) => {
+      setOverkillList(overkill);
+      setIsLoading      
+    })
+    .catch((error) => console.error(error));
+}
+
+useEffect(() => {
+  getEasy();
+  getHard();
+  getOverkill();
+}, []);
 
 if (isLoading) {
     return (

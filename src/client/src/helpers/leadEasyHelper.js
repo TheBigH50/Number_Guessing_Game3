@@ -11,12 +11,8 @@ let [overkillList, setOverkillList] = useState([]);
   fetch("http://localhost:5000/api/leaderboard/easy")
   .then((res) => res.json())
   .then((easy) => setEasyList(easy)),
-  fetch("http://localhost:5000/api/leaderboard/hard")
-  .then((res) => res.json())
-  .then((hard) => setHardList(hard)),
-  fetch("http://localhost:5000/api/leaderboard/overkill")
-  .then((res) => res.json())
-  .then((hard) => setOverkillList(hard)),
+  
+
     ]);
   
     
