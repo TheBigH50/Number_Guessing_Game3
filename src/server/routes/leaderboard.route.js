@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Get Routers
 
-router.get("/", async (req, res, next) => {
+router.get("/easy", async (req, res, next) => {
   try {
     let data = await leaderboard.easyLeader();
     res.json(data);
@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res, next) => {
+router.get("/hard", async (req, res, next) => {
   try {
     let data = await leaderboard.hardLeader();
     res.json(data);
@@ -25,7 +25,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res, next) => {
+router.get("/overkill", async (req, res, next) => {
   try {
     let data = await leaderboard.overkillLeader();
     res.json(data);

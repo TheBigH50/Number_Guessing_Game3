@@ -1,7 +1,12 @@
 import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import { HomePage, LeaderBoard } from "../pages";
+import { HomePage, LeaderBoard } from "./pages";
+import { useState, useEffect } from "react";
 
 function App() {
+
+
+  
+
   return (
     <BrowserRouter>
     <nav>
