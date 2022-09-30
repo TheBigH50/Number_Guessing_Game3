@@ -25,12 +25,10 @@ export const findUserID = async (UserName) => {
 };
 
 export const currentUserScores = async (UserID) => {
-  return await query(
-    "SELECT UserName, EasyScore, EasyCompletionTime, HardScore, HardCompletionTime, OverkillScore, OverkillCompletionTime From scores INNER JOIN users ON users.UserID = scores.UserID WHERE scores.UserID= ?",
-    [UserID]
-  );
+  return await query("SELECT * FROM scores WHERE UserID = ?", [UserID]);
 };
-
+// INNER JOIN scores ON = scores.UserID = users.UserID
+// UserName, EasyScore, EasyCompletionTime, HardScore, HardCompletionTime, OverkillScore, OverkillCompletionTime 
 // Post Query
 
 const newUser = async (UserName) => {

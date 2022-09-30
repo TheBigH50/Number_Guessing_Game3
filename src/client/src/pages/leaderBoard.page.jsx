@@ -8,7 +8,7 @@ let [easyList, setEasyList] = useState(null);
 let [hardList, setHardList] = useState(null);
 let [overkillList, setOverkillList] = useState(null);
 let [currentScore, setCurrentScore] = useState(null);
-let { UserID } = useParams(UID);
+let { UserID } = useParams();
 
 function getEasy() {
   fetch("http://localhost:5000/api/leaderboard/easy")

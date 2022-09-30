@@ -9,4 +9,6 @@ router.get("/test", (req, res, next) => {
 
 router.use("/leaderboard", leaderboardRouter);
 
+
+
 export default router;
