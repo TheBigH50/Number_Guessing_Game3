@@ -3,18 +3,23 @@ import { HomePage, LeaderBoard } from "./pages";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+
 function App() {
 
   return (
     <BrowserRouter>
-    <h2>Welcome</h2>
+    <h2 className="welcome">Welcome</h2>
     <nav>
       <ul>
-        <li>
-          <NavLink to={"/"}>Home</NavLink>
+        <li className="lnks">
+          <NavLink to={"/"} style={({ isActive }) => ({
+            color: isActive ? '#FF0000' : '#FF0000'
+          })}>Home</NavLink>
         </li>
-        <li>
-          <NavLink to={"/leaderBoard"}>Leader Board</NavLink>
+        <li className="lnks">
+          <NavLink to={"/leaderBoard"} style={({ isActive }) => ({
+            color: isActive ? '#FF0000' : '#FF0000'
+          })}>Leader Board</NavLink>
         </li>
       </ul>
     </nav>

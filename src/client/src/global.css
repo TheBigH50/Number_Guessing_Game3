@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  font-family: fantasy;
+  font-weight: 700;
+  background-color: #000000;
+  color: #ff0000;
+}
+
+body {
+  margin: 0;
+}
+
+.whole {
+  display: flex;
+  flex-direction: column;
+  background-image: url("C:\Projects\repos\react-repos\number_guessing_game3\src\client\assets\fire-15.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  color: #36005c;
+}
+
+.homeDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("C:\Projects\repos\react-repos\number_guessing_game3\src\client\assets\wallpaperflare.com_wallpaper.jpg");
+  background-size: auto;  
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  background-color: rgba(207, 192, 192, 0.384);
+  margin: 0.7rem;
+  padding: 0.5rem;  
+  border: 17.5px outset transparent;  
+  border-image: url("C:\Projects\repos\react-repos\number_guessing_game3\src\client\assets\tumblr_nsm8o8U14l1tdhimpo1_540.webp") 10% round;
+  border-image-repeat: stretch;  
+}
+
+li {
+  margin-left: 5rem;
+  margin-right: 2rem;   
+}
+
+
+ul li:before {
+    content: '';
+    display: inline-block;
+    height: 25px;
+    width: 35px;
+    background-image: url("C:\Projects\repos\react-repos\number_guessing_game3\src\client\assets\questionmarkgif.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: -35px;
+  }
+
+ 

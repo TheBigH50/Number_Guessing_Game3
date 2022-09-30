@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function HomePage(props) {
-  /*
+  
   let testUser = "TheBigH50"
   let [user, setUser] = useState(null);
   let [isLoading, setIsLoading] = useState(true);
   let { UserName } = useParams(testUser);
-*/
-  /*
+
+  
   function getUser() {
     fetch(`http://localhost:5000/api/leaderboard/${UserName}`)
       .then((res) => res.json())
@@ -31,14 +31,14 @@ function HomePage(props) {
         <h1>Is Loading...</h1>
       </div>
     );
-  } else { */
+  } else { 
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="homeDiv">
+      <h1>Number Guessing Game!</h1>
     <h2>Hello TheBigH50</h2>
     </div>
   );
 }
-
+}
 
 export default HomePage;

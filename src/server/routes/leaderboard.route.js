@@ -49,8 +49,7 @@ router.get("/:UserName", async (req, res, next) => {
 
 router.get("/users/:UserID", async (req, res, next) => {
   try {
-    let { UserID } = req.params;
-    
+    let { UserID } = req.params;    
     let data = await leaderboard.currentUserScores(parseInt(UserID));
     res.json(data);
   } catch (error) {
