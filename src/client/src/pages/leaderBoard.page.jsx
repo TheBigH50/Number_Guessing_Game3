@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 
 function LeaderBoard(props) {
 let [isLoading, setIsLoading] = useState(true);
-let [easyList, setEasyList] = useState({});
-let [hardList, setHardList] = useState({});
-let [overkillList, setOverkillList] = useState({});
+let [easyList, setEasyList] = useState(null);
+let [hardList, setHardList] = useState(null);
+let [overkillList, setOverkillList] = useState(null);
 
 function getEasy() {
   fetch("http://localhost:5000/api/leaderboard/easy")
@@ -29,7 +29,7 @@ function getOverkill() {
     .then((res) => res.json())
     .then((overkill) => {
       setOverkillList(overkill);
-      setIsLoading      
+      setIsLoading(false);    
     })
     .catch((error) => console.error(error));
 }
@@ -40,6 +40,9 @@ useEffect(() => {
   getOverkill();
 }, []);
 
+console.log(easyList);
+console.log(hardList);
+console.log(overkillList);
 if (isLoading) {
     return (
       <div>

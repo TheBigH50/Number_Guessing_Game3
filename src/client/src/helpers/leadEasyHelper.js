@@ -1,3 +1,4 @@
+/*
 import { useState, useEffect } from "react";
 
 function MainLeaderboard(props) {
@@ -25,3 +26,4 @@ let [overkillList, setOverkillList] = useState([]);
     )
 
 }
+*/
