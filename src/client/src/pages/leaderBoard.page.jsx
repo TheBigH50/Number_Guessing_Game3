@@ -89,7 +89,7 @@ if (isLoading) {
             ))}
         </ol>
         <br></br>
-            <h3 className="center">Hard Mode</h3>
+            <h3 className="center">Overkill Mode</h3>
             <ol className="center">
        {overkillList.map((score) => (
               <li key={score.ScoreID}>{`${score.UserName} || Number Of Guesses: ${score.OverkillScore} || Completed In: ${score.OverkillCompletionTime}`}</li>
