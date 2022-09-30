@@ -21,7 +21,7 @@ export const overkillLeader = async () => {
 };
 
 export const findUserID = async (UserName) => {
-  return await query("SELECT UserID FROM users WHERE Username= ?", [UserName]);
+  return await query("SELECT UserName, UserID FROM users WHERE Username= ?", [UserName]);
 };
 
 export const currentUserScores = async (UserID) => {

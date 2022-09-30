@@ -1,37 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function HomePage(props) {
-  let [list, setList] = useState(["ready", "set", "GO"]);
-  let [text, setText] = useState("");
-
-  function onSubmit(event) {
-    event.preventDefault();
-
-    let newList = [...list, text];
-    setList(newList);
-    setText("");
+  /*
+  let testUser = "TheBigH50"
+  let [user, setUser] = useState(null);
+  let [isLoading, setIsLoading] = useState(true);
+  let { UserName } = useParams(testUser);
+*/
+  /*
+  function getUser() {
+    fetch(`http://localhost:5000/api/leaderboard/${UserName}`)
+      .then((res) => res.json())
+      .then((current) => {
+        setUser(current);        
+        setIsLoading(false);
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   }
 
+  useEffect(() => {
+   getUser();
+  }, []);
+  
+  
+  if (isLoading) {
+    return (
+      <div>
+        <h1>Is Loading...</h1>
+      </div>
+    );
+  } else { */
   return (
     <div>
       <h1>Hello World</h1>
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="listitem"
-          id="listitem"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
-      <ul>
-        {list.map((text, idx) => (
-          <li key={idx}>{text}</li>
-        ))}
-      </ul>
+    <h2>Hello TheBigH50</h2>
     </div>
   );
 }
+
 
 export default HomePage;

@@ -59,7 +59,7 @@ router.get("/:UserID", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     let newUser = req.body;
-    let data = await employees.newUser(newUser);
+    let data = await leaderboard.newUser(newUser);
     res.json(data);
   } catch (error) {
     next(error);
@@ -72,7 +72,7 @@ router.put("/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
     let updatedEasyScore = req.body;
-    let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+    let data = await leaderboard.updateEasyScore(updatedEasyScore, UserID);
     res.json(data);
   } catch (error) {
     next(error);
@@ -83,7 +83,7 @@ router.put("/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
     let updatedEasyScore = req.body;
-    let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+    let data = await leaderboard.updateEasyScore(updatedEasyScore, UserID);
     res.json(data);
   } catch (error) {
     next(error);
@@ -94,7 +94,7 @@ router.put("/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
     let updatedEasyScore = req.body;
-    let data = await employees.updateEasyScore(updatedEasyScore, UserID);
+    let data = await leaderboard.updateEasyScore(updatedEasyScore, UserID);
     res.json(data);
   } catch (error) {
     next(error);
@@ -105,7 +105,7 @@ router.put("/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
     let updatedHardScore = req.body;
-    let data = await employees.updateHardScore(updatedHardScore, UserID);
+    let data = await leaderboard.updateHardScore(updatedHardScore, UserID);
     res.json(data);
   } catch (error) {
     next(error);
@@ -116,7 +116,7 @@ router.put("/:UserID", async (req, res, next) => {
   try {
     let { UserID } = req.params;
     let updatedOverkillScore = req.body;
-    let data = await employees.updateOverkillScore(
+    let data = await leaderboard.updateOverkillScore(
       updatedOverkillScore,
       UserID
     );

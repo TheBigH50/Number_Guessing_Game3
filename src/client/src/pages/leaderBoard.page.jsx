@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 function LeaderBoard(props) {
+let UID = 6;
 let [isLoading, setIsLoading] = useState(true);
 let [easyList, setEasyList] = useState(null);
 let [hardList, setHardList] = useState(null);
 let [overkillList, setOverkillList] = useState(null);
 let [currentScore, setCurrentScore] = useState(null);
-let { UserID } = useParams();
+let { UserID } = useParams(UID);
 
 function getEasy() {
   fetch("http://localhost:5000/api/leaderboard/easy")
@@ -66,7 +67,9 @@ if (isLoading) {
   } else {
     return (
         <div>
+
             <h1>Top Players</h1>
+            
         </div>
     )
 
