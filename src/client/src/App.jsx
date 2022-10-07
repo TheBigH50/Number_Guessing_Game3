@@ -21,11 +21,17 @@ function App() {
             color: isActive ? '#FF0000' : '#FF0000'
           })}>Leader Board</NavLink>
         </li>
+        <li className="lnks">
+          <NavLink to={"/game"} style={({ isActive }) => ({
+            color: isActive ? '#FF0000' : '#FF0000'
+          })}>Game</NavLink>
+        </li>
       </ul>
     </nav>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/leaderBoard" element={<LeaderBoard />} />
+      <Route path="/game" element={<Game />} />
     </Routes>
     </BrowserRouter>    
   );
