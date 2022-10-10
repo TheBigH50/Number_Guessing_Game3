@@ -1,5 +1,5 @@
 import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import { HomePage, LeaderBoard } from "./pages";
+import { HomePage, LeaderBoard, Game } from "./pages";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 

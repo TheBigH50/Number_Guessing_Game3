@@ -47,3 +47,5 @@ let [ isLoading, setIsLoading ] = useState(true);
         );
 }
 }
+
+export default Game;
