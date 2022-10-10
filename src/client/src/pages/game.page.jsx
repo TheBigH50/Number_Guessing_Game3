@@ -10,6 +10,7 @@ let [ isLoading, setIsLoading ] = useState(true);
         fetch("https://api.random.org/json-rpc/4/invoke", {
             "jsonrpc": "2.0",
             "method": "generateIntegers",
+            "mode": "cors",
             "params": {
                 "apiKey": "86555fa2-c0e1-4380-83f7-e862fdd2d686",
                 "n": 1,
@@ -29,6 +30,10 @@ let [ isLoading, setIsLoading ] = useState(true);
           .catch((error) => console.error(error));
       }
     
+      useEffect(() => {
+        gameEasy();
+       }, []);
+       
     
     if (isLoading) {
         return (
