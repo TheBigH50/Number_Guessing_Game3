@@ -9,8 +9,7 @@ let [ isLoading, setIsLoading ] = useState(true);
     function gameEasy() {
         fetch("https://api.random.org/json-rpc/4/invoke", {
             "jsonrpc": "2.0",
-            "method": "generateIntegers",
-            "mode": "cors",
+            "method": "generateIntegers",                      
             "params": {
                 "apiKey": "86555fa2-c0e1-4380-83f7-e862fdd2d686",
                 "n": 1,
