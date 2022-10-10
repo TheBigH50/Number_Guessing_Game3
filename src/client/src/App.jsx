@@ -1,5 +1,5 @@
 import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import { HomePage, LeaderBoard, Game } from "./pages";
+import { HomePage, LeaderBoard, GamePage } from "./pages";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -31,7 +31,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/leaderBoard" element={<LeaderBoard />} />
-      <Route path="/game" element={<Game />} />
+      <Route path="/game" element={<GamePage />} />
     </Routes>
     </BrowserRouter>    
   );

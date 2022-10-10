@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function Game() {
+function GamePage() {
 
 let [ easyGame, setEasyGame ] = useState([]);
 let [ isLoading, setIsLoading ] = useState(true);
@@ -48,4 +48,4 @@ let [ isLoading, setIsLoading ] = useState(true);
 }
 }
 
-export default Game;
+export default GamePage;
