@@ -46,7 +46,7 @@ let [ isLoading, setIsLoading ] = useState(true);
         gameEasy();
        }, []);
        
-    
+    console.log(easyGame);
     if (isLoading) {
         return (
           <div>
