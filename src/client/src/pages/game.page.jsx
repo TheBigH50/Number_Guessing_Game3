@@ -57,7 +57,7 @@ let [ isLoading, setIsLoading ] = useState(true);
         return (
 <div>
             <h1>Hello World!</h1>
-            <p>{`My number is: ${easyGame.data}`}</p>
+            <p>{`My number is: ${easyGame.result.random.data[0]}`}</p>
             </div>
             
 
