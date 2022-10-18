@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
 function GamePage() {
 
@@ -15,7 +14,7 @@ let [ isLoading, setIsLoading ] = useState(true);
           "jsonrpc": "2.0",
           "method": "generateIntegers",
           "params": {
-            "apiKey": "86555fa2-c0e1-4380-83f7-e862fdd2d686",
+            "apiKey": `${config.apiKey}`,
             "n": 1,
             "min": 1,
             "max": 10,
