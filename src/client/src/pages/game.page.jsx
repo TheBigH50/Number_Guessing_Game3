@@ -6,27 +6,9 @@ let [ easyGame, setEasyGame ] = useState([]);
 let [ isLoading, setIsLoading ] = useState(true);
 
     function game () {
+          
+
         
-      var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Cookie", "__cflb=02DiuEMAZFhhWAbaKrDP2YYpUK2thcATmzfaiAhCEFueK");
-
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: gameEasy,
-        redirect: 'follow'
-      }; 
-
-        fetch("https://api.random.org/json-rpc/4/invoke", requestOptions)          
-          .then((res) => res.json())
-          .then((easy) => {
-            setEasyGame(easy);
-            setIsLoading(false);
-          })
-          .catch((error) => console.error(error));
-      }
-    
       useEffect(() => {
         game();
        }, []);

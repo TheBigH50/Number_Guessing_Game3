@@ -1,5 +1,15 @@
 const gameEasy = () => {
-    
+
+  var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Cookie", "__cflb=02DiuEMAZFhhWAbaKrDP2YYpUK2thcATmzfaiAhCEFueK");
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };     
     
     var raw = JSON.stringify({
       "jsonrpc": "2.0",
@@ -14,7 +24,17 @@ const gameEasy = () => {
         "pregeneratedRandomization": null
       },
       "id": 23412
-    });   
-  }
+    }); 
+
+    fetch("https://api.random.org/json-rpc/4/invoke", requestOptions)          
+          .then((res) => res.json())
+          .then((easy) => {
+            setEasyGame(easy);
+            setIsLoading(false);
+          })
+          .catch((error) => console.error(error));
+      }    
+  
+  
 
 export default gameEasy;
