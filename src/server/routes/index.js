@@ -10,6 +10,6 @@ router.get("/test", (req, res, next) => {
 
 router.use("/leaderboard", leaderboardRouter);
 
-router.use()
+router.use("/game", gameRouter);
 
 export default router;
