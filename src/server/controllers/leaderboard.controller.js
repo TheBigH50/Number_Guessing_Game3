@@ -2,29 +2,29 @@ import query from "../db/utils";
 
 // Get Query's
 
-export const easyLeader = async () => {
+const easyLeader = async () => {
   return await query(
     "SELECT ScoreID, UserName, EasyScore, EasyCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT EasyScore= 0 ORDER BY EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
 
-export const hardLeader = async () => {
+const hardLeader = async () => {
   return await query(
     "SELECT ScoreID, UserName, HardScore, HardCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT HardScore= 0 ORDER BY HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
 
-export const overkillLeader = async () => {
+const overkillLeader = async () => {
   return await query(
     "SELECT ScoreID, UserName, OverkillScore, OverkillCompletionTime FROM scores INNER JOIN users ON users.UserID = scores.UserID WHERE NOT OverkillScore= 0 ORDER BY OverkillScore, OverkillCompletionTime, HardScore, HardCompletionTime, EasyScore, EasyCompletionTime ASC LIMIT 10"
   );
 };
 
-export const findUserID = async (UserName) => {
+const findUserID = async (UserName) => {
   return await query("SELECT UserName, UserID FROM users WHERE Username= ?", [UserName]);
 };
 
-export const currentUserScores = async (UserID) => {
+const currentUserScores = async (UserID) => {
   return await query("SELECT UserName, EasyScore, EasyCompletionTime, HardScore, HardCompletionTime, OverkillScore, OverkillCompletionTime FROM scores INNER JOIN users ON scores.UserID = users.UserID WHERE users.UserID = ?", [UserID]);
 };
 // 
