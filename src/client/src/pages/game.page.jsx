@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import gameEasy from "../../../server/controllers/game.controller";
+import gameEasy from "";
 function GamePage() {
 
 let [ easyGame, setEasyGame ] = useState([]);

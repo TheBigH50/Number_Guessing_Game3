@@ -1,4 +1,4 @@
-const gameEasy = () => {
+const gameEasy = async () => {
 
   var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -26,7 +26,7 @@ const gameEasy = () => {
       "id": 23412
     }); 
 
-    fetch("https://api.random.org/json-rpc/4/invoke", requestOptions)          
+    return await fetch("https://api.random.org/json-rpc/4/invoke", requestOptions)          
           .then((res) => res.json())
           .then((easy) => {
             setEasyGame(easy);
