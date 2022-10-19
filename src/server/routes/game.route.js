@@ -2,7 +2,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.post("/:gameLevel", async (req, res, next) => {
+router.post("/game:gameLevel", async (req, res, next) => {
     try {
         let { gameLevel } = req.params;
         let chooseLevel = req.body;
