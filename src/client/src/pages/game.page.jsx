@@ -8,7 +8,7 @@ let [ easyGame, setEasyGame ] = useState([]);
 let [ isLoading, setIsLoading ] = useState(true);
 
     
-          
+          //make a fetch call to my fetch on back
 
         
       useEffect(() => {

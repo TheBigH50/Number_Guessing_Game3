@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 const gameEasy = async () => {
 
   var myHeaders = new Headers();
@@ -24,7 +26,7 @@ const gameEasy = async () => {
         "pregeneratedRandomization": null
       },
       "id": 23412
-    }); 
+    });
 
     return await fetch("https://api.random.org/json-rpc/4/invoke", requestOptions)          
           .then((res) => res.json())
