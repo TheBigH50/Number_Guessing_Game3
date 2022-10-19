@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import gameEasy from "../../../server/controllers/game.controller";
 function GamePage() {
 
 let [ easyGame, setEasyGame ] = useState([]);
@@ -10,11 +10,11 @@ let [ isLoading, setIsLoading ] = useState(true);
       var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Cookie", "__cflb=02DiuEMAZFhhWAbaKrDP2YYpUK2thcATmzfaiAhCEFueK");
-    
+
       var requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        body: raw,
+        body: gameEasy,
         redirect: 'follow'
       }; 
 

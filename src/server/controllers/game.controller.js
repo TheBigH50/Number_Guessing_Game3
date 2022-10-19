@@ -1,6 +1,4 @@
-
-
-export const gameEasy = async () => {
+const gameEasy = () => {
     
     
     var raw = JSON.stringify({
@@ -16,7 +14,7 @@ export const gameEasy = async () => {
         "pregeneratedRandomization": null
       },
       "id": 23412
-    });
-    
-   
+    });   
   }
+
+export default gameEasy;
