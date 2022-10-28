@@ -13,14 +13,15 @@ function getEasy() {
   fetch(`http://localhost:5000/api/game/${gameLevel}`)
     .then((res) => res.json())
     .then((easy) => {
-      setEasyGame(easy);      
+      setEasyGame(easy);
+      setIsLoading(false);      
     })
     .catch((error) => console.error(error));
 }//make a fetch call to my fetch on back
 
         
       useEffect(() => {
-        gameEasy();
+        getEasy();
        }, []);
        
     console.log(easyGame);
