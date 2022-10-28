@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
-import gameEasy from "../../../server/controllers/game.controller";
+import { useParams } from "react-router-dom";
 
 
 function GamePage() {
 
 let [ easyGame, setEasyGame ] = useState([]);
 let [ isLoading, setIsLoading ] = useState(true);
+let { gameLevel } = useParams();
 
     
-          //make a fetch call to my fetch on back
+function getEasy() {
+  fetch(`http://localhost:5000/api/game/${gameLevel}`)
+    .then((res) => res.json())
+    .then((easy) => {
+      setEasyGame(easy);      
+    })
+    .catch((error) => console.error(error));
+}//make a fetch call to my fetch on back
 
         
       useEffect(() => {
