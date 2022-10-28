@@ -39,4 +39,4 @@ const gameEasy = async () => {
   
   
 
-export default gameEasy; 
+export default { gameEasy }; 

@@ -1,12 +1,12 @@
 import express from "express";
+import gameChoice from "../controllers/game.controller";
 
 const router = express.Router();
 
-router.get("/game:gameLevel", async (req, res, next) => {
+router.get("/:gameLevel", async (req, res, next) => {
     try {
-        let { gameLevel } = req.params;
-        let chooseLevel = req.body;
-        let data = await gameChoice.chooseLevel(chooseLevel, gameLevel);
+        let { GameLevel } = req.params;
+        let data = await gameChoice.chooseLevel(GameLevel);
         res.json(data);
     } catch (error) {
         next(error);
