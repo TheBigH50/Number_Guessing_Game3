@@ -1,6 +1,6 @@
 import express from "express";
-import leaderboardRouter from "./leaderboard.route";
-import gameRouter from "./game.route";
+import leaderboardRouter from "./leaderboard.route.js";
+import gameRouter from "./game.route.js";
 
 const router = express.Router();
 
